@@ -1,0 +1,189 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.card {
+    background: #ffffff;
+    padding: 35px 25px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    width: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 22px;
+    color: #2c3e50;
+    margin: 0 0 6px 0;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+/* 쿠키와 종이가 들어가는 무대 영역 */
+.cookie-stage {
+    position: relative;
+    width: 260px;
+    height: 180px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: visible;
+}
+
+/* 포춘쿠키 반쪽 기본 스타일 */
+.cookie-half {
+    position: absolute;
+    top: 20px;
+    font-size: 90px;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    overflow: hidden;
+    user-select: none;
+    transition: transform 0.8s ease-in-out, opacity 0.6s;
+    z-index: 2;
+}
+
+/* 왼쪽 반쪽 */
+.cookie-half.left {
+    left: 40px;
+    text-align: left;
+}
+
+/* 오른쪽 반쪽 */
+.cookie-half.right {
+    right: 40px;
+    text-align: right;
+}
+
+/* 흔들리는 효과 */
+.cookie-stage.shake .cookie-half {
+    animation: shake 0.15s infinite alternate;
+}
+
+@keyframes shake {
+    0% { transform: rotate(-5deg) translateY(-2px); }
+    100% { transform: rotate(5deg) translateY(2px); }
+}
+
+/* 쿠키가 열릴 때 양쪽으로 밀려남 */
+.cookie-stage.open .cookie-half.left {
+    transform: translateX(-60px) rotate(-30deg);
+    opacity: 0.3;
+}
+
+.cookie-stage.open .cookie-half.right {
+    transform: translateX(60px) rotate(30deg);
+    opacity: 0.3;
+}
+
+/* 운세 종이 스타일 */
+.fortune-paper {
+    position: absolute;
+    width: 200px;
+    background: #fffdf0;
+    border: 2px dashed #e67e22;
+    border-radius: 10px;
+    padding: 15px 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transform: scale(0) translateY(30px);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s;
+    z-index: 3;
+}
+
+/* 쿠키가 열리면 종이가 튀어나옴 */
+.cookie-stage.open .fortune-paper {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+#resultText {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d35400;
+    margin-bottom: 8px;
+}
+
+#detailText {
+    font-size: 12px;
+    color: #4a5568;
+    line-height: 1.4;
+    word-break: keep-all;
+}
+
+/* 행운의 정보 박스 */
+.lucky-box {
+    width: 100%;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #edf2f7;
+}
+
+.lucky-item {
+    font-size: 11px;
+    color: #718096;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.lucky-item b {
+    font-size: 13px;
+    color: #2d3748;
+}
+
+/* 버튼 스타일 */
+button {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background: #219150;
+}
+
+button:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+}
+
+.btn-copy {
+    background: #4a5568;
+    margin-top: 8px;
+}
+
+.btn-copy:hover {
+    background: #2d3748;
+}
