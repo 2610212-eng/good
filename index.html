@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 운세 뽑기 🥠</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>🥠 오늘의 운세 뽑기</h1>
+        <p class="subtitle">쿠키를 클릭하거나 아래 버튼을 눌러보세요!</p>
+
+        <!-- 포춘쿠키 무대 -->
+        <div class="cookie-stage" id="cookieStage" onclick="drawFortune()">
+            <!-- 쿠키 왼쪽 조각 -->
+            <div class="cookie-half left" id="cookieLeft">🥠</div>
+            <!-- 쿠키 오른쪽 조각 -->
+            <div class="cookie-half right" id="cookieRight">🥠</div>
+            
+            <!-- 안에서 나오는 운세 종이 -->
+            <div class="fortune-paper" id="fortunePaper">
+                <div id="resultText">🎉 운세를 뽑아보세요!</div>
+                <div id="detailText"></div>
+            </div>
+        </div>
+
+        <!-- 행운의 아이템 정보 -->
+        <div id="luckyBox" class="lucky-box" style="display: none;">
+            <div class="lucky-item">🎨 <span>행운의 색</span> <b id="luckyColor">-</b></div>
+            <div class="lucky-item">🔢 <span>행운의 숫자</span> <b id="luckyNumber">-</b></div>
+            <div class="lucky-item">🍕 <span>추천 메뉴</span> <b id="luckyMenu">-</b></div>
+        </div>
+
+        <button id="drawBtn" onclick="drawFortune()">🥠 포춘 쿠키 깨뜨리기!</button>
+        <button id="copyBtn" onclick="copyResult()" style="display: none;" class="btn-copy">📋 운세 결과 복사하기</button>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
